@@ -1,0 +1,149 @@
+
+
+<!-- Interface utilisateur -->
+
+<!DOCTYPE html>
+<html style="overflow: auto;">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>3WA Restaurant</title>
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/normalize.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/font-awesome-4.3.0.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- Feuilles de styles de l'application -->
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/3wa-resto.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-button.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-form.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-table.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/style.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps|Karla">
+
+    <!-- Librairie jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+
+    <!-- JavaScript de l'application -->
+    <script src="<?= $wwwUrl ?>/js/utilities.js"></script>
+</head>
+<body>
+
+
+
+<div class="overlay"></div>
+
+    <div class="Connect">
+
+
+
+
+            <ul class="signup">
+                <li>Identifiez-vous</li>
+                <li>veuillez Remplir tous les champs</li>
+                <li>Identifiant:</li>
+                <div class="ErrorIDorPassword"></div>
+                <li><input type="text" id="login" name="login" maxlength="16"></li>
+                <li>Mot de passe:</li>
+                <li><input type="password" id="password" name="password"></li>
+                <li><button id="Connexion">Connexion</button></li>
+            </ul>
+
+
+
+    </div>
+
+
+
+
+<!-- En-tête commune -->
+<header>
+
+
+
+
+    <h1><a class="logo" href="<?= $requestUrl ?>"><img src="<?= $wwwUrl ?>/images/image_site/logobiolangerie.png" alt=""></a></h1>
+
+    <div>
+
+
+    <nav>
+        <ul>
+            <li><a href="<?= $requestUrl?>">Accueil</a></li>
+            <li><a href="<?= $requestUrl?>/bread">Les pains</a></li>
+            <li><a href="<?= $requestUrl?>/pastry">Les pâtisseries</a></li>
+            <li><a href="<?= $requestUrl?>/sandwich">Les sandwich</a></li>
+            <li><a href="<?= $requestUrl?>/soda">Les boissons</a></li>
+            <li><div class="panier"><a class="divCountArticle" href="<?= $requestUrl?>/panier">Mon Panier<i class="fas fa-shopping-cart"></i></a></div></li>
+            <?php if(empty($_SESSION)):?>
+            <li><a class="login"><i class="fas fa-lock"></i>Connexion</a></li>
+            <li><a class="signup" href="<?= $requestUrl ?>/signup"><i class="fas fa-user-plus"></i>s'inscrire</a></li>
+            <?php else : ?>
+                <li>Bonjour <?= $_SESSION["prenom"]." ". $_SESSION["nom"]?></li>
+            <li><a href="<?= $requestUrl?>/deconnexion">Déconnexion</a></li>
+            <?php endif; ?>
+        </ul>
+    </nav>
+    </div>
+</header>
+
+<!-- ICI IL Y AURA UN SLIDER AVEC LES PROMOTION DU JOUR-->
+
+
+<div class="grid-2 DivArticleGlobal">
+
+
+
+
+    <main class="Container">
+
+
+
+
+            <!-- Affichage du template lié à la vue-->
+        <?php include $this->viewData['template'] ?>
+
+
+
+
+    </main>
+
+    <div class="ArticleAstuce">
+
+        <article>
+            <!-- ICI IL Y AURA UN ARTICLE DU JOUR MODIFIABLE PAR L ADMIN-->
+
+            <h1>L' Astuce gourmande du jour</h1>
+
+        <?php
+
+            $AstuceDay = new AstuceDayModel();
+
+           $astuce = $AstuceDay->DisplayAstuceDay();
+
+        ?>
+            <h2><?=$astuce["title"]?></h2>
+
+           <img src="<?= "/images/image_site/".$astuce["photo"] ?>" alt="photo de l'astuce">
+            <p><?= $astuce["corp"]?></p>
+
+        </article>
+
+    </div>
+
+
+</div>
+<!-- Pied de page commun -->
+<footer>
+
+
+    <p>Réalisé par Zakaria Boujrad</p>
+</footer>
+
+<!-- Code principal JavaScript de l'application -->
+<script src="<?= $wwwUrl ?>/js/main.js"></script>
+
+</body>
+</html>

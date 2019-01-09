@@ -1,0 +1,654 @@
+/*******************************************************************************
+
+
+                            MES VARIABLES
+
+
+*******************************************************************************/
+/*******************************************************************************
+
+
+                        Modification Globale
+
+
+*******************************************************************************/
+* {
+  box-sizing: border-box; }
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0; }
+
+[class*="grid-"] {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+
+.grid-2 > * {
+  width: 48.5%; }
+
+.grid-3 > * {
+  width: 31.33333%; }
+
+.grid-4 > * {
+  width: 22.75%; }
+
+.grid-5 > * {
+  width: 17.6%; }
+
+.grid-6 > * {
+  width: 14.16667%; }
+
+.grid-7 > * {
+  width: 11.71429%; }
+
+.grid-8 > * {
+  width: 9.875%; }
+
+.grid-9 > * {
+  width: 8.44444%; }
+
+.grid-10 > * {
+  width: 7.3%; }
+
+.grid-11 > * {
+  width: 6.36364%; }
+
+.grid-12 > * {
+  width: 5.58333%; }
+
+body {
+  margin: 0;
+  padding: 0; }
+
+/*******************************************************************************
+
+                        FONT STYLE
+
+
+*******************************************************************************/
+@font-face {
+  font-family: 'Craie';
+  src: url("../css/Craie.ttf"); }
+@font-face {
+  font-family: 'feutre';
+  src: url("../css/Feutre.ttf"); }
+@font-face {
+  font-family: 'Western';
+  src: url("../css/Western.ttf"); }
+/*******************************************************************************
+
+                        DIV CONNEXION AND OVERLAY
+
+*******************************************************************************/
+.overlay {
+  display: none;
+  background-color: black;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 9999;
+  opacity: .8;
+  overflow: hidden;
+  margin-top: -21px; }
+
+.Connect {
+  display: none;
+  width: 360px;
+  max-width: 100%;
+  position: fixed;
+  background: #f6f4f4;
+  left: 50%;
+  margin-left: -180px;
+  border-radius: 5px;
+  z-index: 99999;
+  overflow: hidden;
+  max-width: 100%; }
+
+/*******************************************************************************
+
+
+                                HEADER
+
+
+*******************************************************************************/
+header h1 {
+  text-align: center;
+  color: black;
+  text-decoration: none; }
+  header h1 img {
+    width: 16%; }
+header div {
+  width: 100%; }
+  header div nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-around; }
+    header div nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+      list-style: none; }
+      header div nav ul li {
+        padding-right: 2rem;
+                    /*********************************************************
+
+                            Icone chariot + Nombre de Produit dans le panier
+
+                    ******************************************************/ }
+        header div nav ul li a {
+          text-decoration: none;
+          color: black; }
+          header div nav ul li a .fa-lock {
+            padding-right: 0.2rem; }
+          header div nav ul li a .fa-user-plus {
+            padding-right: 0.3rem; }
+        header div nav ul li .panier {
+          width: 100%; }
+          header div nav ul li .panier a {
+            display: flex;
+            justify-content: center; }
+          header div nav ul li .panier i {
+            font-size: 1.2rem;
+            padding-left: 0.7rem; }
+          header div nav ul li .panier .countArticle {
+            position: absolute;
+            text-align: center;
+            width: 1.2rem;
+            border: 1px solid red;
+            border-radius: 40px;
+            background-color: red;
+            color: white;
+            margin-top: -0.8rem;
+            margin-left: 3.6rem; }
+
+/*******************************************************************************
+
+
+                                BODY
+
+
+
+*******************************************************************************/
+/*****************************************************************************
+                         BODY global
+
+ *****************************************************************************/
+.DivArticleGlobal {
+  background-image: url("../images/image_site/fond_du_site.jpg");
+  display: flex;
+  justify-content: space-between;
+  /******************************************************************************
+                          Article Astuce of the day
+  
+  *******************************************************************************/ }
+  .DivArticleGlobal .ArticleAstuce {
+    padding: 2%;
+    height: auto;
+    width: 20%;
+    border: 5px solid  #d7d8da;
+    border-radius: 25px;
+    margin-right: 1%;
+    background-image: url("../images/image_site/ardoiseblancvertical.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'feutre';
+    -webkit-box-shadow: 0px 1px 14px 5px rgba(0, 0, 0, 0.33);
+    -moz-box-shadow: 0px 1px 14px 5px rgba(0, 0, 0, 0.33);
+    box-shadow: 0px 1px 14px 5px rgba(0, 0, 0, 0.33);
+    text-align: center; }
+    .DivArticleGlobal .ArticleAstuce h1 {
+      color: red;
+      font-weight: normal;
+      text-decoration: underline;
+      font-size: 2.5rem; }
+    .DivArticleGlobal .ArticleAstuce h2 {
+      color: #45dd2e;
+      font-size: 2rem; }
+    .DivArticleGlobal .ArticleAstuce p {
+      color: #0008ff;
+      font-size: 1.4rem; }
+    .DivArticleGlobal .ArticleAstuce img {
+      width: 100%;
+      height: 250px; }
+
+/*****************************************************************************
+                         PAGE HOME
+
+ *****************************************************************************/
+.Container {
+  width: 60%;
+  margin-left: 15%; }
+
+.Corp {
+  background-image: url("../images/image_site/fond_div_home_page.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  -moz-box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  background-color: #f4f4f4;
+  padding: 2%;
+  color: #FFF;
+  font-family: 'Craie';
+  font-size: 3.5rem;
+  text-align: center; }
+  .Corp h1 {
+    font-weight: normal;
+    font-size: 5rem; }
+  .Corp .ArticleConcept h1 {
+    color: #10aeed; }
+  .Corp .ArticleProductBuy h1 {
+    color: #14c935; }
+  .Corp .ArticleProductBuy .aside1 h1 {
+    color: #ddff00; }
+  .Corp .ArticleProductBuy .aside2 h1 {
+    color: #5cb7db; }
+  .Corp .ArticleProductBuy .aside3 h1 {
+    color: #f98484; }
+
+iframe {
+  width: 100%;
+  -webkit-box-shadow: 2px 7px 14px 0px rgba(0, 0, 0, 0.41);
+  -moz-box-shadow: 2px 7px 14px 0px rgba(0, 0, 0, 0.41);
+  box-shadow: 2px 7px 14px 0px rgba(0, 0, 0, 0.41); }
+
+/*****************************************************************************
+                             PAGE Bread
+ *****************************************************************************/
+.CategoryBread {
+  background-image: url("../images/image_site/fond_Category_Bread.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  -moz-box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  background-color: #f4f4f4;
+  padding: 2%; }
+  .CategoryBread .ModifArticle {
+    padding-left: 200px; }
+    .CategoryBread .ModifArticle ul {
+      padding: 0;
+      list-style: none; }
+    .CategoryBread .ModifArticle li {
+      padding-top: 20%;
+      color: white; }
+      .CategoryBread .ModifArticle li a {
+        color: red; }
+  .CategoryBread article {
+    display: flex;
+    flex-wrap: wrap; }
+  .CategoryBread aside {
+    padding: 7.5%; }
+    .CategoryBread aside .divimgBread {
+      background-color: #fff;
+      width: 200px;
+      height: 200px;
+      -webkit-box-shadow: 0px -1px 24px 0px #f5edf5;
+      -moz-box-shadow: 0px -1px 24px 0px #f5edf5;
+      box-shadow: 0px -1px 24px 0px #f5edf5; }
+    .CategoryBread aside a {
+      text-decoration: none;
+      color: #d3994e;
+      font-family: "Western"; }
+      .CategoryBread aside a img {
+        width: 100%; }
+      .CategoryBread aside a .divNameOfCategoryBread {
+        padding-top: 1rem;
+        text-align: center;
+        font-size: 1.5rem; }
+  .CategoryBread .DivAddCategoryBread {
+    width: 20%; }
+    .CategoryBread .DivAddCategoryBread ul {
+      list-style: none;
+      padding: 0; }
+    .CategoryBread .DivAddCategoryBread li {
+      color: black; }
+    .CategoryBread .DivAddCategoryBread form {
+      border: 0px solid;
+      border-radius: 25px;
+      background-color: white;
+      padding: 5%; }
+
+/*****************************************************************************
+                             PAGE Pastry
+ *****************************************************************************/
+.CategoryPastry {
+  background-image: url("../images/image_site/Patisseries.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  -moz-box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  background-color: #f4f4f4;
+  padding: 2%; }
+  .CategoryPastry .ModifArticle {
+    padding-left: 200px; }
+    .CategoryPastry .ModifArticle ul {
+      padding: 0;
+      list-style: none; }
+    .CategoryPastry .ModifArticle li {
+      padding-top: 20%;
+      color: white; }
+      .CategoryPastry .ModifArticle li a {
+        color: red; }
+  .CategoryPastry article {
+    display: flex;
+    flex-wrap: wrap; }
+  .CategoryPastry aside {
+    padding: 7.5%; }
+    .CategoryPastry aside .divimgPastry {
+      background-color: #fff;
+      width: 200px;
+      height: 200px;
+      -webkit-box-shadow: 0px -1px 24px 0px #f5edf5;
+      -moz-box-shadow: 0px -1px 24px 0px #f5edf5;
+      box-shadow: 0px -1px 24px 0px #f5edf5; }
+    .CategoryPastry aside a {
+      text-decoration: none;
+      color: #edd350;
+      font-family: "Western"; }
+      .CategoryPastry aside a img {
+        width: 100%; }
+      .CategoryPastry aside a .divNameOfCategoryPastry {
+        padding-top: 1rem;
+        text-align: center;
+        font-size: 1.5rem; }
+
+/*****************************************************************************
+                             PAGE Sandwich
+ *****************************************************************************/
+.CategorySandwich {
+  background-image: url("../images/image_site/sandwich.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  -moz-box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  background-color: #f4f4f4;
+  padding: 2%; }
+  .CategorySandwich .ModifArticle {
+    padding-left: 200px; }
+    .CategorySandwich .ModifArticle ul {
+      padding: 0;
+      list-style: none; }
+    .CategorySandwich .ModifArticle li {
+      padding-top: 20%;
+      color: white; }
+      .CategorySandwich .ModifArticle li a {
+        color: red; }
+  .CategorySandwich article {
+    display: flex;
+    flex-wrap: wrap; }
+  .CategorySandwich aside {
+    padding: 7.5%; }
+    .CategorySandwich aside .divimgSandwich {
+      background-color: #fff;
+      width: 200px;
+      height: 200px;
+      -webkit-box-shadow: 0px -1px 24px 0px #f5edf5;
+      -moz-box-shadow: 0px -1px 24px 0px #f5edf5;
+      box-shadow: 0px -1px 24px 0px #f5edf5; }
+    .CategorySandwich aside a {
+      text-decoration: none;
+      color: #cfdd00;
+      font-family: "Western"; }
+      .CategorySandwich aside a img {
+        width: 100%; }
+      .CategorySandwich aside a .divNameOfCategorySandwich {
+        padding-top: 1rem;
+        text-align: center;
+        font-size: 1.5rem; }
+
+/*****************************************************************************
+                             PAGE Soda
+ *****************************************************************************/
+.CategorySoda {
+  background-image: url("../images/image_site/Boisson.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  -moz-box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  background-color: #f4f4f4;
+  padding: 2%; }
+  .CategorySoda .ModifArticle {
+    padding-left: 200px; }
+    .CategorySoda .ModifArticle ul {
+      padding: 0;
+      list-style: none; }
+    .CategorySoda .ModifArticle li {
+      padding-top: 20%;
+      color: white; }
+      .CategorySoda .ModifArticle li a {
+        color: red; }
+  .CategorySoda article {
+    display: flex;
+    flex-wrap: wrap; }
+  .CategorySoda aside {
+    padding: 7.5%; }
+    .CategorySoda aside .divimgSoda {
+      background-color: #fff;
+      width: 200px;
+      height: 200px;
+      -webkit-box-shadow: 0px -1px 24px 0px #f5edf5;
+      -moz-box-shadow: 0px -1px 24px 0px #f5edf5;
+      box-shadow: 0px -1px 24px 0px #f5edf5; }
+    .CategorySoda aside a {
+      text-decoration: none;
+      color: #000000;
+      font-family: "Western"; }
+      .CategorySoda aside a img {
+        width: 100%; }
+      .CategorySoda aside a .divNameOfCategorySoda {
+        padding-top: 1rem;
+        text-align: center;
+        font-size: 1.5rem; }
+
+/******************************************************************************
+                               AllCategoryCss
+******************************************************************************/
+.CategoryProduct {
+  background-image: url("../images/image_site/fondProduct.jpg");
+  background-repeat: repeat;
+  -webkit-box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  -moz-box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  background-color: #f4f4f4;
+  padding: 2%; }
+  .CategoryProduct h1 {
+    text-align: center;
+    color: #FFF;
+    font-family: "Western";
+    font-weight: normal; }
+  .CategoryProduct .Product {
+    display: flex;
+    align-items: center;
+    padding: 3%;
+    background-color: white;
+    margin: 5%;
+    border: 0px solid;
+    border-radius: 25px;
+    -webkit-box-shadow: 0px 0px 34px 1px black;
+    -moz-box-shadow: 0px 0px 34px 1px black;
+    box-shadow: 0px 0px 34px 1px black;
+    background: white;
+    background: -moz-linear-gradient(left, white 0%, #f6f6f6 27%, #f6f6f6 33%, #ededed 65%, #ededed 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, white), color-stop(27%, #f6f6f6), color-stop(33%, #f6f6f6), color-stop(65%, #ededed), color-stop(100%, #ededed));
+    background: -webkit-linear-gradient(left, white 0%, #f6f6f6 27%, #f6f6f6 33%, #ededed 65%, #ededed 100%);
+    background: -o-linear-gradient(left, white 0%, #f6f6f6 27%, #f6f6f6 33%, #ededed 65%, #ededed 100%);
+    background: -ms-linear-gradient(left, white 0%, #f6f6f6 27%, #f6f6f6 33%, #ededed 65%, #ededed 100%);
+    background: linear-gradient(to right, white 0%, #f6f6f6 27%, #f6f6f6 33%, #ededed 65%, #ededed 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=1 ); }
+    .CategoryProduct .Product .ImageProduct {
+      width: 150px; }
+      .CategoryProduct .Product .ImageProduct img {
+        width: 100%; }
+    .CategoryProduct .Product .InformationProduct {
+      width: 440px;
+      height: auto; }
+    .CategoryProduct .Product .InformationQuantityPrice {
+      width: 225px; }
+      .CategoryProduct .Product .InformationQuantityPrice input {
+        text-align: center;
+        width: 20%; }
+      .CategoryProduct .Product .InformationQuantityPrice .Error {
+        text-align: center;
+        color: red; }
+    .CategoryProduct .Product .ButtonAddBasket {
+      width: 60px;
+      text-align: center; }
+      .CategoryProduct .Product .ButtonAddBasket span {
+        text-align: center; }
+        .CategoryProduct .Product .ButtonAddBasket span i {
+          padding: 20%;
+          border: 0px solid;
+          border-radius: 20px;
+          background-color: #ffd83f;
+          font-size: 1.1rem;
+          color: black; }
+
+/*****************************************************************************
+                                PAGE Signup
+*****************************************************************************/
+.Signup {
+  background-image: url("../images/image_site/sinscrire.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  -moz-box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  background-color: #f4f4f4;
+  padding: 2%; }
+  .Signup .DivForm {
+    padding: 30%; }
+    .Signup .DivForm .DivSignup {
+      background-color: #FFF;
+      padding: 10%;
+      border: 0px solid black;
+      border-radius: 25px; }
+      .Signup .DivForm .DivSignup h1 {
+        font-size: 2.5rem;
+        color: blue; }
+      .Signup .DivForm .DivSignup ul {
+        padding: 0; }
+      .Signup .DivForm .DivSignup li {
+        padding-bottom: 4%;
+        list-style: none;
+        text-align: center; }
+
+/******************************************************************************
+                               RECAPpanier
+******************************************************************************/
+.RecapPanier {
+  background-image: url("../images/image_site/fondProduct.jpg");
+  background-repeat: repeat;
+  background-size: contain;
+  -webkit-box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  -moz-box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  box-shadow: 1px 1px 14px 1px rgba(0, 0, 0, 0.41);
+  background-color: #f4f4f4;
+  padding: 2%; }
+  .RecapPanier h1 {
+    text-align: center;
+    color: #FFF;
+    font-family: "Western";
+    font-weight: normal; }
+  .RecapPanier .RecapPanierProduct {
+    display: flex;
+    align-items: center;
+    padding: 3%;
+    background-color: white;
+    margin: 5%;
+    border: 0px solid;
+    border-radius: 25px;
+    -webkit-box-shadow: 0px 0px 34px 1px black;
+    -moz-box-shadow: 0px 0px 34px 1px black;
+    box-shadow: 0px 0px 34px 1px black;
+    background: white;
+    background: -moz-linear-gradient(left, white 0%, #f6f6f6 27%, #f6f6f6 33%, #ededed 65%, #ededed 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, white), color-stop(27%, #f6f6f6), color-stop(33%, #f6f6f6), color-stop(65%, #ededed), color-stop(100%, #ededed));
+    background: -webkit-linear-gradient(left, white 0%, #f6f6f6 27%, #f6f6f6 33%, #ededed 65%, #ededed 100%);
+    background: -o-linear-gradient(left, white 0%, #f6f6f6 27%, #f6f6f6 33%, #ededed 65%, #ededed 100%);
+    background: -ms-linear-gradient(left, white 0%, #f6f6f6 27%, #f6f6f6 33%, #ededed 65%, #ededed 100%);
+    background: linear-gradient(to right, white 0%, #f6f6f6 27%, #f6f6f6 33%, #ededed 65%, #ededed 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=1 ); }
+    .RecapPanier .RecapPanierProduct .RecapPanierImageProduct {
+      width: 150px; }
+      .RecapPanier .RecapPanierProduct .RecapPanierImageProduct img {
+        width: 100%; }
+    .RecapPanier .RecapPanierProduct .RecapPanierInformationProduct {
+      width: 440px; }
+    .RecapPanier .RecapPanierProduct .RecapPanierInformationQuantityPrice {
+      width: 150px; }
+      .RecapPanier .RecapPanierProduct .RecapPanierInformationQuantityPrice input {
+        width: 10%; }
+    .RecapPanier .RecapPanierProduct .RecapPanierButtonAddBasket {
+      width: 80px;
+      text-align: center; }
+      .RecapPanier .RecapPanierProduct .RecapPanierButtonAddBasket span {
+        text-align: center; }
+        .RecapPanier .RecapPanierProduct .RecapPanierButtonAddBasket span i {
+          padding: 15%;
+          border: 0px solid;
+          border-radius: 50px;
+          background-color: #ffd83f;
+          font-size: 0.9rem;
+          color: black; }
+  .RecapPanier .ButtonValiderBasket {
+    width: 100%;
+    text-align: center; }
+    .RecapPanier .ButtonValiderBasket .SendBasket {
+      border: 0px solid;
+      border-radius: 110px 110px 110px 110px;
+      padding: 1%;
+      font-style: italic;
+      background-color: #ffd83f;
+      font-size: 1.4rem; }
+  .RecapPanier .ErrorPanier {
+    padding-top: 3%;
+    padding-bottom: 3%;
+    width: 100%;
+    border: 0px solid;
+    border-radius: 25px;
+    -webkit-box-shadow: 0px 0px 34px 1px black;
+    -moz-box-shadow: 0px 0px 34px 1px black;
+    box-shadow: 0px 0px 34px 1px black;
+    background: white;
+    background: -moz-linear-gradient(left, white 0%, #f6f6f6 27%, #f6f6f6 33%, #ededed 65%, #ededed 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, white), color-stop(27%, #f6f6f6), color-stop(33%, #f6f6f6), color-stop(65%, #ededed), color-stop(100%, #ededed));
+    background: -webkit-linear-gradient(left, white 0%, #f6f6f6 27%, #f6f6f6 33%, #ededed 65%, #ededed 100%);
+    background: -o-linear-gradient(left, white 0%, #f6f6f6 27%, #f6f6f6 33%, #ededed 65%, #ededed 100%);
+    background: -ms-linear-gradient(left, white 0%, #f6f6f6 27%, #f6f6f6 33%, #ededed 65%, #ededed 100%);
+    background: linear-gradient(to right, white 0%, #f6f6f6 27%, #f6f6f6 33%, #ededed 65%, #ededed 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=1 ); }
+    .RecapPanier .ErrorPanier p {
+      font-size: 5rem;
+      text-align: center;
+      color: #a59393; }
+  .RecapPanier .DivErrorPasco {
+    width: 100%;
+    text-align: center; }
+    .RecapPanier .DivErrorPasco .ButtonErrorPasco {
+      border: 0px solid;
+      border-radius: 110px 110px 110px 110px;
+      padding: 1%;
+      font-style: italic;
+      background-color: #5e5959;
+      font-size: 1.4rem; }
+
+/*******************************************************************************
+
+                                Footer
+
+*******************************************************************************/
+footer p {
+  text-align: center;
+  font-size: 0.8rem; }
+
+/*# sourceMappingURL=style.css.map */

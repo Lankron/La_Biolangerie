@@ -1,0 +1,33 @@
+<!-- ICI IL Y AURA LES CATEGORIES DE PAINS EXEMPLE SANS GLUTEN ET EN PLUS BIO SA MERE -->
+
+
+<section class="CategorySandwich">
+    <div class="DivAddCategory">
+
+        <form action="<?= $requestUrl?>/" method="post"></form>
+    </div>
+    <article>
+    <?php foreach($Categoriessandwich as $CategorySandwich) :?>
+    <aside>
+        <!-- je fais une boucle pour chercher les différentes catégories-->
+        <div class="ModifArticle">
+
+            <ul>
+                <li class="Edit"><i class="fas fa-edit"></i></li>
+                <li class="Delete"><a href="<?= $requestUrl ?>/modifallcategoryandproduct/deletecategorysandwich?id=<?= $CategorySandwich["id"]?>"><i class="fas fa-times"></i></a></li>
+            </ul>
+
+
+        </div>
+        <div>
+
+            <a  href="<?= $requestUrl."/categoryproductsandwich?id=".$CategorySandwich["id"]?>" ><div class="divimgSandwich"><img src="<?= $CategorySandwich["photo"]?>" alt="imagekelkonk"></div>
+                <div class="divNameOfCategorySandwich"><?= $CategorySandwich["categorysandwich"]?></div></a>
+
+        </div>
+    </aside>
+    <?php endforeach; ?>
+    </article>
+
+
+</section>

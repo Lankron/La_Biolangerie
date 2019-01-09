@@ -1,0 +1,1089 @@
+/*******************************************************************************
+
+
+                            MES VARIABLES
+
+
+*******************************************************************************/
+
+
+
+
+
+
+/*******************************************************************************
+
+
+                        Modification Globale
+
+
+*******************************************************************************/
+
+*{
+
+    box-sizing: border-box;
+
+}
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+[class*="grid-"]{
+
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+@for $i from 2 through 12 {
+
+    .grid-#{$i}>*{
+
+        width: (100% - ($i - 1)*3%)/$i;
+    }
+
+}
+
+body{
+
+    margin:0;
+    padding:0;
+
+
+
+
+
+
+}
+/*******************************************************************************
+
+                        FONT STYLE
+
+
+*******************************************************************************/
+@font-face {
+  font-family: 'Craie';
+  src: url('../css/Craie.ttf');
+}
+@font-face {
+  font-family: 'feutre';
+  src: url('../css/Feutre.ttf');
+}
+@font-face {
+  font-family: 'Western';
+  src: url('../css/Western.ttf');
+}
+
+/*******************************************************************************
+
+                        DIV CONNEXION AND OVERLAY
+
+*******************************************************************************/
+
+.overlay{
+
+    display: none;
+    background-color:black;
+    position: fixed;
+    height: 100vh;
+    width:100%;
+    z-index:9999;
+    opacity: .8;
+    overflow: hidden;
+    margin-top: -21px;
+
+
+
+
+
+}
+
+.Connect{
+
+    display: none;
+    width: 360px;
+    max-width: 100%;
+    position: fixed;
+    background: #f6f4f4;
+    left: 50%;
+    margin-left: -180px;
+    border-radius: 5px;
+    z-index: 99999;
+    overflow: hidden;
+    max-width: 100%;
+
+
+}
+
+
+
+
+/*******************************************************************************
+
+
+                                HEADER
+
+
+*******************************************************************************/
+
+header{
+
+
+
+
+    h1{
+
+            text-align: center;
+            color: black;
+            text-decoration: none;
+
+            img{
+
+                width: 16%;
+
+            }
+    }
+
+    div{
+        width: 100%;
+        nav{
+
+
+            width: 100%;
+            display: flex;
+
+            justify-content: space-around;
+            ul{
+
+            display: flex;
+            flex-wrap: wrap;
+
+                padding: 0;
+
+                list-style: none;
+
+                li{
+
+                    padding-right: 2rem;
+
+                    a{
+
+                        text-decoration: none;
+                        color: black;
+
+                        .fa-lock{
+
+                            padding-right: 0.2rem;
+
+                        }
+                        .fa-user-plus{
+
+                            padding-right: 0.3rem;
+
+                        }
+
+                    }
+
+                    /*********************************************************
+
+                            Icone chariot + Nombre de Produit dans le panier
+
+                    ******************************************************/
+                    .panier{
+
+
+                        width: 100%;
+
+                        a{
+                            display:flex;
+                            justify-content: center;
+                        }
+
+
+                        i{
+
+                        font-size: 1.2rem;
+                        padding-left: 0.7rem;
+
+                        }
+
+                        .countArticle{
+
+                            position: absolute;
+                            text-align: center;
+                            width: 1.2rem;
+                            border: 1px solid red;
+                            border-radius: 40px;
+                            background-color: red;
+                            color: white;
+                            margin-top: -0.8rem;
+                            margin-left: 3.6rem;
+
+
+
+                        }
+
+                    }
+                }
+
+
+            }
+
+
+
+        }
+
+    }
+
+}
+
+
+
+
+/*******************************************************************************
+
+
+                                BODY
+
+
+
+*******************************************************************************/
+/*****************************************************************************
+                         BODY global
+
+ *****************************************************************************/
+
+.DivArticleGlobal{
+    background-image: url("../images/image_site/fond_du_site.jpg");
+    display: flex;
+    justify-content: space-between;
+/******************************************************************************
+                        Article Astuce of the day
+
+*******************************************************************************/
+    .ArticleAstuce{
+
+            padding: 2%;
+            height: auto;
+            width: 20%;
+
+            border: 5px solid  #d7d8da;
+            border-radius: 25px;
+            margin-right: 1%;
+            background-image: url("../images/image_site/ardoiseblancvertical.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: 'feutre';
+            -webkit-box-shadow: 0px 1px 14px 5px rgba(0,0,0,0.33);
+            -moz-box-shadow: 0px 1px 14px 5px rgba(0,0,0,0.33);
+            box-shadow: 0px 1px 14px 5px rgba(0,0,0,0.33);
+            text-align: center;
+
+        h1{
+
+            color: red;
+            font-weight: normal;
+            text-decoration:underline;
+            font-size: 2.5rem;
+        }
+        h2{
+            color: #45dd2e;
+            font-size: 2rem;
+        }
+        p{
+
+            color: #0008ff;
+            font-size: 1.4rem;
+        }
+
+        img{
+            width: 100%;
+            height:  250px;
+        }
+
+    }
+}
+/*****************************************************************************
+                         PAGE HOME
+
+ *****************************************************************************/
+
+.Container{
+
+
+
+    width: 60%;
+    margin-left: 15%;
+
+
+}
+
+
+
+.Corp{
+
+    background-image: url("../images/image_site/fond_div_home_page.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+    -moz-box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+    box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+
+
+    background-color: #f4f4f4;
+    padding: 2%;
+
+
+    color: #FFF;
+    font-family: 'Craie';
+    font-size: 3.5rem;
+    text-align: center;
+    h1{
+        font-weight: normal;
+        font-size: 5rem;
+
+    }
+    .ArticleConcept{
+
+        h1{
+                    color: #10aeed;
+        }
+
+    }
+    .ArticleProductBuy{
+        h1{
+            color: #14c935;
+        }
+        .aside1{
+            h1{
+                color: #ddff00;
+            }
+        }
+        .aside2{
+            h1{
+                color: #5cb7db;
+            }
+        }
+        .aside3{
+            h1{
+                color: #f98484;
+            }
+        }
+
+    }
+
+
+}
+
+
+iframe{
+
+
+    width: 100%;
+    -webkit-box-shadow: 2px 7px 14px 0px rgba(0,0,0,0.41);
+    -moz-box-shadow: 2px 7px 14px 0px rgba(0,0,0,0.41);
+    box-shadow: 2px 7px 14px 0px rgba(0,0,0,0.41);
+
+}
+
+
+/*****************************************************************************
+                             PAGE Bread
+ *****************************************************************************/
+.CategoryBread{
+    background-image: url("../images/image_site/fond_Category_Bread.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+    -moz-box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+    box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+
+
+    background-color: #f4f4f4;
+    padding: 2%;
+
+    .ModifArticle{
+
+        padding-left: 200px;
+
+        ul{
+            padding: 0;
+            list-style: none;
+
+        }
+
+        li{
+
+            padding-top: 20%;
+            color: white;
+            a{
+                color: red;
+            }
+        }
+
+
+    }
+
+    article{
+
+        display: flex;
+        flex-wrap: wrap;
+
+
+    }
+    aside{
+
+        padding: 7.5%;
+
+
+        .divimgBread{
+            background-color: #fff;
+
+            width: 200px;
+            height: 200px;
+            -webkit-box-shadow: 0px -1px 24px 0px rgba(245,237,245,1);
+-moz-box-shadow: 0px -1px 24px 0px rgba(245,237,245,1);
+box-shadow: 0px -1px 24px 0px rgba(245,237,245,1);
+
+        }
+        a{
+
+            text-decoration: none;
+            color: #d3994e;
+            font-family: "Western";
+            img{
+                width: 100%;
+            }
+            .divNameOfCategoryBread{
+
+                padding-top: 1rem;
+                text-align: center;
+                font-size: 1.5rem;
+
+            }
+        }
+    }
+    .DivAddCategoryBread{
+
+
+        width: 20%;
+        ul{
+            list-style: none;
+            padding: 0;
+        }
+        li{
+            color: black;
+        }
+        form{
+            border: 0px solid;
+            border-radius: 25px;
+            background-color: white;
+            padding: 5%;
+        }
+
+    }
+
+}
+
+
+
+
+
+/*****************************************************************************
+                             PAGE Pastry
+ *****************************************************************************/
+ .CategoryPastry{
+
+     background-image: url("../images/image_site/Patisseries.jpg");
+     background-repeat: no-repeat;
+     background-size: cover;
+     -webkit-box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+     -moz-box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+     box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+
+
+     background-color: #f4f4f4;
+     padding: 2%;
+
+
+     .ModifArticle{
+
+         padding-left: 200px;
+
+         ul{
+             padding: 0;
+             list-style: none;
+
+         }
+
+         li{
+
+             padding-top: 20%;
+             color: white;
+             a{
+                 color: red;
+             }
+         }
+
+
+     }
+     article{
+
+         display: flex;
+         flex-wrap: wrap;
+
+
+     }
+     aside{
+
+         padding: 7.5%;
+
+
+         .divimgPastry{
+             background-color: #fff;
+
+             width: 200px;
+             height: 200px;
+             -webkit-box-shadow: 0px -1px 24px 0px rgba(245,237,245,1);
+             -moz-box-shadow: 0px -1px 24px 0px rgba(245,237,245,1);
+             box-shadow: 0px -1px 24px 0px rgba(245,237,245,1);
+
+         }
+         a{
+
+             text-decoration: none;
+             color: #edd350;
+             font-family: "Western";
+             img{
+                 width: 100%;
+             }
+             .divNameOfCategoryPastry{
+
+                 padding-top: 1rem;
+                 text-align: center;
+                 font-size: 1.5rem;
+
+             }
+         }
+     }
+
+
+ }
+ /*****************************************************************************
+                              PAGE Sandwich
+  *****************************************************************************/
+  .CategorySandwich{
+
+      background-image: url("../images/image_site/sandwich.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      -webkit-box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+      -moz-box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+      box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+
+
+      background-color: #f4f4f4;
+      padding: 2%;
+
+
+      .ModifArticle{
+
+          padding-left: 200px;
+
+          ul{
+              padding: 0;
+              list-style: none;
+
+          }
+
+          li{
+
+              padding-top: 20%;
+              color: white;
+              a{
+                  color: red;
+              }
+          }
+
+
+      }
+      article{
+
+          display: flex;
+          flex-wrap: wrap;
+
+
+      }
+      aside{
+
+          padding: 7.5%;
+
+
+          .divimgSandwich{
+              background-color: #fff;
+
+              width: 200px;
+              height: 200px;
+              -webkit-box-shadow: 0px -1px 24px 0px rgba(245,237,245,1);
+              -moz-box-shadow: 0px -1px 24px 0px rgba(245,237,245,1);
+              box-shadow: 0px -1px 24px 0px rgba(245,237,245,1);
+
+          }
+          a{
+
+              text-decoration: none;
+              color: #cfdd00;
+              font-family: "Western";
+              img{
+                  width: 100%;
+              }
+              .divNameOfCategorySandwich{
+
+                  padding-top: 1rem;
+                  text-align: center;
+                  font-size: 1.5rem;
+
+              }
+          }
+      }
+
+
+  }
+  /*****************************************************************************
+                               PAGE Soda
+   *****************************************************************************/
+   .CategorySoda{
+       background-image: url("../images/image_site/Boisson.jpg");
+       background-repeat: no-repeat;
+       background-size: cover;
+       -webkit-box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+       -moz-box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+       box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+
+
+           background-color: #f4f4f4;
+           padding: 2%;
+
+           .ModifArticle{
+
+               padding-left: 200px;
+
+               ul{
+                   padding: 0;
+                   list-style: none;
+
+               }
+
+               li{
+
+                   padding-top: 20%;
+                   color: white;
+                   a{
+                       color: red;
+                   }
+               }
+
+
+           }
+
+       article{
+
+           display: flex;
+           flex-wrap: wrap;
+
+
+       }
+       aside{
+
+           padding: 7.5%;
+
+
+           .divimgSoda{
+               background-color: #fff;
+
+               width: 200px;
+               height: 200px;
+               -webkit-box-shadow: 0px -1px 24px 0px rgba(245,237,245,1);
+               -moz-box-shadow: 0px -1px 24px 0px rgba(245,237,245,1);
+               box-shadow: 0px -1px 24px 0px rgba(245,237,245,1);
+
+           }
+           a{
+
+               text-decoration: none;
+               color: #000000;
+               font-family: "Western";
+               img{
+                   width: 100%;
+               }
+               .divNameOfCategorySoda{
+
+                   padding-top: 1rem;
+                   text-align: center;
+                   font-size: 1.5rem;
+
+               }
+           }
+       }
+
+
+   }
+/******************************************************************************
+                               AllCategoryCss
+******************************************************************************/
+   .CategoryProduct{
+   background-image: url("../images/image_site/fondProduct.jpg");
+   background-repeat: repeat;
+   -webkit-box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+   -moz-box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+   box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+
+
+       background-color: #f4f4f4;
+       padding: 2%;
+
+
+       h1{
+
+            text-align: center;
+            color: #FFF;
+            font-family: "Western";
+            font-weight: normal;
+
+
+       }
+       .Product{
+           display: flex;
+           align-items: center;
+           padding:3%;
+           background-color: white;
+           margin: 5%;
+           border: 0px solid;
+           border-radius: 25px;
+           -webkit-box-shadow: 0px 0px 34px 1px rgba(0,0,0,1);
+           -moz-box-shadow: 0px 0px 34px 1px rgba(0,0,0,1);
+           box-shadow: 0px 0px 34px 1px rgba(0,0,0,1);
+           background: rgba(255,255,255,1);
+           background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 27%, rgba(246,246,246,1) 33%, rgba(237,237,237,1) 65%, rgba(237,237,237,1) 100%);
+           background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(27%, rgba(246,246,246,1)), color-stop(33%, rgba(246,246,246,1)), color-stop(65%, rgba(237,237,237,1)), color-stop(100%, rgba(237,237,237,1)));
+           background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 27%, rgba(246,246,246,1) 33%, rgba(237,237,237,1) 65%, rgba(237,237,237,1) 100%);
+           background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 27%, rgba(246,246,246,1) 33%, rgba(237,237,237,1) 65%, rgba(237,237,237,1) 100%);
+           background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 27%, rgba(246,246,246,1) 33%, rgba(237,237,237,1) 65%, rgba(237,237,237,1) 100%);
+           background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 27%, rgba(246,246,246,1) 33%, rgba(237,237,237,1) 65%, rgba(237,237,237,1) 100%);
+           filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=1 );
+
+           .ImageProduct{
+
+               width: 150px;
+               img{
+                   width: 100%;
+               }
+
+           }
+
+           .InformationProduct{
+
+               width: 440px;
+               height: auto;
+
+
+
+           }
+           .InformationQuantityPrice{
+
+
+               width: 225px;
+
+               input{
+                   text-align: center;
+
+                   width: 20%;
+
+
+               }
+               .Error{
+                       text-align: center;
+                       color: red;
+               }
+
+
+
+           }
+           .ButtonAddBasket{
+
+            width: 60px;
+            text-align: center;
+
+
+               span{
+
+                text-align: center;
+                    i{
+
+                        padding: 20%;
+                        border: 0px solid;
+                        border-radius: 20px;
+                        background-color: #ffd83f;
+                        font-size: 1.1rem;
+                        color: black;
+
+                    }
+
+               }
+
+
+
+           }
+
+       }
+
+
+   }
+
+
+
+/*****************************************************************************
+                                PAGE Signup
+*****************************************************************************/
+.Signup{
+
+    background-image: url("../images/image_site/sinscrire.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+    -moz-box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+    box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+
+
+        background-color: #f4f4f4;
+        padding: 2%;
+
+
+        .DivForm{
+
+            padding:30%;
+
+
+
+            .DivSignup{
+
+                background-color: #FFF;
+                padding:10%;
+
+                border: 0px solid black;
+                border-radius: 25px;
+                h1{
+                    font-size: 2.5rem;
+                    color: blue;
+                }
+
+                ul{
+                    padding: 0;
+                }
+                li{
+
+                    padding-bottom: 4%;
+                    list-style: none;
+                    text-align: center;
+
+                }
+
+            }
+
+
+        }
+
+}
+
+/******************************************************************************
+                               RECAPpanier
+******************************************************************************/
+   .RecapPanier{
+   background-image: url("../images/image_site/fondProduct.jpg");
+   background-repeat: repeat;
+   background-size: contain;
+   -webkit-box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+   -moz-box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+   box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.41);
+
+
+       background-color: #f4f4f4;
+       padding: 2%;
+
+
+       h1{
+
+            text-align: center;
+            color: #FFF;
+            font-family: "Western";
+            font-weight: normal;
+
+
+       }
+       .RecapPanierProduct{
+           display: flex;
+           align-items: center;
+           padding:3%;
+           background-color: white;
+           margin: 5%;
+           border: 0px solid;
+           border-radius: 25px;
+           -webkit-box-shadow: 0px 0px 34px 1px rgba(0,0,0,1);
+           -moz-box-shadow: 0px 0px 34px 1px rgba(0,0,0,1);
+           box-shadow: 0px 0px 34px 1px rgba(0,0,0,1);
+           background: rgba(255,255,255,1);
+           background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 27%, rgba(246,246,246,1) 33%, rgba(237,237,237,1) 65%, rgba(237,237,237,1) 100%);
+           background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(27%, rgba(246,246,246,1)), color-stop(33%, rgba(246,246,246,1)), color-stop(65%, rgba(237,237,237,1)), color-stop(100%, rgba(237,237,237,1)));
+           background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 27%, rgba(246,246,246,1) 33%, rgba(237,237,237,1) 65%, rgba(237,237,237,1) 100%);
+           background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 27%, rgba(246,246,246,1) 33%, rgba(237,237,237,1) 65%, rgba(237,237,237,1) 100%);
+           background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 27%, rgba(246,246,246,1) 33%, rgba(237,237,237,1) 65%, rgba(237,237,237,1) 100%);
+           background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 27%, rgba(246,246,246,1) 33%, rgba(237,237,237,1) 65%, rgba(237,237,237,1) 100%);
+           filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=1 );
+
+           .RecapPanierImageProduct{
+
+               width: 150px;
+               img{
+                   width: 100%;
+               }
+
+           }
+
+           .RecapPanierInformationProduct{
+
+               width: 440px;
+
+
+
+           }
+           .RecapPanierInformationQuantityPrice{
+
+               width: 150px;
+               input{
+
+                   width: 10%;
+
+
+               }
+
+
+
+           }
+           .RecapPanierButtonAddBasket{
+
+            width: 80px;
+            text-align: center;
+
+
+               span{
+
+
+                text-align: center;
+                    i{
+
+                        padding: 15%;
+                        border: 0px solid;
+                        border-radius: 50px;
+                        background-color: #ffd83f;
+                        font-size: 0.9rem;
+                        color: black;
+
+                    }
+
+               }
+
+
+
+           }
+
+       }
+        .ButtonValiderBasket{
+
+            width: 100%;
+            text-align: center;
+
+            .SendBasket{
+
+                border: 0px solid;
+                border-radius: 110px 110px 110px 110px;
+                padding: 1%;
+                font-style: italic;
+                background-color: #ffd83f;
+                font-size: 1.4rem;
+
+            }
+
+        }
+        .ErrorPanier{
+
+        padding-top: 3%;
+        padding-bottom: 3%;
+        width: 100%;
+
+        border: 0px solid;
+        border-radius: 25px;
+        -webkit-box-shadow: 0px 0px 34px 1px rgba(0,0,0,1);
+        -moz-box-shadow: 0px 0px 34px 1px rgba(0,0,0,1);
+        box-shadow: 0px 0px 34px 1px rgba(0,0,0,1);
+        background: rgba(255,255,255,1);
+        background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 27%, rgba(246,246,246,1) 33%, rgba(237,237,237,1) 65%, rgba(237,237,237,1) 100%);
+        background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(27%, rgba(246,246,246,1)), color-stop(33%, rgba(246,246,246,1)), color-stop(65%, rgba(237,237,237,1)), color-stop(100%, rgba(237,237,237,1)));
+        background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 27%, rgba(246,246,246,1) 33%, rgba(237,237,237,1) 65%, rgba(237,237,237,1) 100%);
+        background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 27%, rgba(246,246,246,1) 33%, rgba(237,237,237,1) 65%, rgba(237,237,237,1) 100%);
+        background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 27%, rgba(246,246,246,1) 33%, rgba(237,237,237,1) 65%, rgba(237,237,237,1) 100%);
+        background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 27%, rgba(246,246,246,1) 33%, rgba(237,237,237,1) 65%, rgba(237,237,237,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=1 );
+            p{
+                font-size: 5rem;
+                text-align: center;
+                color: #a59393;
+            }
+        }
+
+        .DivErrorPasco{
+
+            width: 100%;
+            text-align: center;
+
+            .ButtonErrorPasco{
+
+                border: 0px solid;
+                border-radius: 110px 110px 110px 110px;
+                padding: 1%;
+                font-style: italic;
+                background-color: #5e5959;
+                font-size: 1.4rem;
+
+            }
+
+        }
+
+   }
+
+/*******************************************************************************
+
+                                Footer
+
+*******************************************************************************/
+
+
+footer{
+
+
+
+
+
+    p{
+        text-align: center;
+        font-size: 0.8rem;
+
+    }
+
+
+}

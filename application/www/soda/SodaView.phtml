@@ -1,0 +1,27 @@
+<!-- ICI IL Y AURA LES CATEGORIES DE PAINS EXEMPLE SANS GLUTEN ET EN PLUS BIO SA MERE -->
+
+
+<section class="CategorySoda">
+    <article>
+    <?php foreach($Categoriessoda as $Categorysoda) :?>
+    <aside>
+        <!-- je fais une boucle pour chercher les différentes catégories-->
+        <div class="ModifArticle">
+
+            <ul>
+                <li class="Edit"><i class="fas fa-edit"></i></li>
+                <li class="Delete"><a href="<?= $requestUrl ?>/modifallcategoryandproduct/deletecategorysoda?id=<?= $Categorysoda["id"]?>"><i class="fas fa-times"></i></a></li>
+            </ul>
+
+
+        </div>
+        <div>
+
+            <a  href="<?= $requestUrl."/categoryproductsoda?id=".$Categorysoda["id"]?>" ><div class="divimgSoda"><img src="<?= $Categorysoda["photo"]?>" alt="imagekelkonk"></div>
+                <div class="divNameOfCategorySoda"><?= $Categorysoda["categorysoda"]?></div></a>
+        </div>
+    </aside>
+    <?php endforeach; ?>
+    </article>
+
+</section>

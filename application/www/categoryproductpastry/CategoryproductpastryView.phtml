@@ -1,0 +1,38 @@
+<section class="CategoryProduct">
+
+    <h1>Voici les produits de la catégorie <?= $TitlesPastry["categoryproduct"] ?></h1>
+
+    <!--  Allproductbread  /-->
+
+    <?php foreach($Allproductpastry as $ProductPastry): ?>
+        <div class="Product grid-4">
+
+
+            <div class="ImageProduct">
+                <img src="<?= $wwwUrl."/images/image_site/".$ProductPastry["photo"]?>" alt="y'apa">
+
+            </div>
+            <div class="InformationProduct">
+
+                <p><?= $ProductPastry["name"]?></p>
+                <p><?= $ProductPastry["description"]?></p>
+            </div>
+            <div class="InformationQuantityPrice">
+                <p>Quantité restante :<?= $ProductPastry["quantityinstock"] ?></p>
+                <p>Prix : <?= $ProductPastry["saleprice"] ?></p>
+                <p>Quantité a commander: <input  class="quantity<?=$ProductPastry["id_product"]?>" type="number" value="1" min="1" max="10"></p>
+                <div class="Error" id="Error<?=$ProductPastry["id_product"]?>"></div>
+            </div>
+            <div class="ButtonAddBasket">
+                <p>Ajouter au panier</p>
+                <span  class="AjoutBasket" data-id_product="<?=$ProductPastry["id_product"]?>"><i class="fas fa-cart-arrow-down"></i></span>
+            </div>
+
+
+        </div>
+
+
+
+    <?php endforeach; ?>
+
+</section>

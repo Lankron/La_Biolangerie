@@ -1,0 +1,46 @@
+<!-- ICI IL Y AURA LES CATEGORIES DE PAINS EXEMPLE SANS GLUTEN ET EN PLUS BIO SA MERE -->
+
+
+<section class="CategoryBread">
+    <div class="DivAddCategoryBread">
+
+        <form action="<?= $requestUrl?>/modifallcategoryandproduct" method="post">
+
+            <ul>
+                <li>Entrer le nom de l'image et son extension</li>
+                <li><input type="text" placeholder="Exemple:(image.jpg)"></li>
+                <li>Entrer le nom de la catégorie</li>
+                <li><input type="text" placeholder="Baguette sans gluten"></li>
+                <li><input type="submit" value="Modifier"></li>
+            </ul>
+
+        </form>
+    </div>
+    <article>
+
+    <?php foreach($Categoriesbread as $Categorybread) :?>
+    <aside>
+        <!-- je fais une boucle pour chercher les différentes catégories-->
+
+        <div>
+            <div class="ModifArticle">
+
+                <ul>
+                    <li class="Edit"><i class="fas fa-edit"></i></li>
+                    <li class="Delete"><a href="<?= $requestUrl ?>/modifallcategoryandproduct/deletecategorybread?id=<?= $Categorybread["id"]?>"><i class="fas fa-times"></i></a></li>
+                </ul>
+
+
+            </div>
+
+        <a  href="<?= $requestUrl."/categoryproductbread?id=".$Categorybread["id"]?>" ><div class="divimgBread"><img src="<?= $wwwUrl."/images/image_site/".$Categorybread["photo"]?>" alt="imagekelkonk"></div><div class="divNameOfCategoryBread"><?= $Categorybread["CategoryBread"]?></div>
+        </a>
+
+
+
+        </div>
+    </aside>
+    <?php endforeach; ?>
+    </article>
+
+</section>

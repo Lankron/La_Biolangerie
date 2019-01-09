@@ -1,0 +1,38 @@
+<section class="CategoryProduct">
+
+    <h1>Voici les produits de la catégorie <?= $TitlesSoda["categoryproduct"] ?></h1>
+
+    <!--  Allproductbread  /-->
+
+    <?php foreach($Allproductsoda as $ProductSoda): ?>
+        <div class="Product grid-4">
+
+
+            <div class="ImageProduct">
+                <img src="<?= $wwwUrl."/images/image_site/".$ProductSoda["photo"]?>" alt="y'apa">
+
+            </div>
+            <div class="InformationProduct">
+
+                <p><?= $ProductSoda["name"]?></p>
+                <p><?= $ProductSoda["description"]?></p>
+            </div>
+            <div class="InformationQuantityPrice">
+                <p>Quantité restante :<?= $ProductSoda["quantityinstock"] ?></p>
+                <p>Prix : <?= $ProductSoda["saleprice"] ?></p>
+                <p>Quantité a commander: <input  class="quantity<?=$ProductSoda["id_product"]?>" type="number" value="1" min="1" max="10"></p>
+                <div class="Error" id="Error<?=$ProductSoda["id_product"]?>"></div>
+            </div>
+            <div class="ButtonAddBasket">
+                <p>Ajouter au panier</p>
+                <span  class="AjoutBasket" data-id_product="<?=$ProductSoda["id_product"]?>"><i class="fas fa-cart-arrow-down"></i></span>
+            </div>
+
+
+        </div>
+
+
+
+    <?php endforeach; ?>
+
+</section>
